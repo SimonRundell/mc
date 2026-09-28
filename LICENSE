@@ -1,0 +1,21 @@
+Mornington Crescent
+Copyright (c) Simon Rundell
+
+This project — the application code and the original rules, commentary, and
+landmark entries in the data files — is licensed under Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).
+
+In short: you're free to share and adapt this work, as long as you:
+
+  - give appropriate credit to Simon Rundell,
+  - use it for non-commercial purposes only, and
+  - distribute any adaptations under this same licence.
+
+Full legal text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+Human-readable summary: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+Note on third-party content: station data is sourced from the TfL Unified
+API, and some rule descriptions in data/rules.json are paraphrased from the
+ISIHAC Mornington Crescent variations pages (credited by name in that file).
+Those sources retain their own standing and are not relicensed by this
+project — see README.md for details.

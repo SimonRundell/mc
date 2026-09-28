@@ -1,0 +1,2099 @@
+{
+  "meta": {
+    "title": "Mornington Crescent Rules and Variations",
+    "version": "1.3.0",
+    "count": 129,
+    "schema": {
+      "id": "unique string",
+      "name": "rule name",
+      "description": "paraphrased or original text",
+      "source": "isihac | h2g2 | wikipedia | puzzle | original",
+      "source_url": "page credited for imported entries, else null",
+      "type": "scoring | restriction | wild | turn_order | penalty | start_position | time | format | flavour",
+      "enforceable": "true if the game engine can apply params mechanically",
+      "params": "machine-readable settings, keys vary by type",
+      "tags": "free-form labels"
+    },
+    "notes": [
+      "Entries with source 'isihac' are paraphrased from the Mornington Crescent Variations pages at isihac.co.uk (Mike Williams, copyright holder). Names are credited, wording is not copied.",
+      "Entries with source 'h2g2', 'wikipedia' or 'puzzle' are thin: the source names the variant or mechanic but gives little detail, so descriptions are largely paraphrase plus implementer assumptions. The six 'puzzle' entries adapt mechanics from the World Series of Mornington Crescent puzzle hosted at MIT.",
+      "Numeric values such as time limits, starting credits and elimination cadence are implementer defaults, not taken from the source.",
+      "Empty arrays in params (e.g. snakes, ladders) are for the game to populate.",
+      "Elimination Mornington Crescent and Playstation 2 Version were upgraded from thin h2g2-sourced stubs to full ISIHAC text once the user supplied it. Grand Prix Version, Grand Quarter Final Rules, Green Mornington Crescent, Parker's 1st Principle and UKIP Version were added the same way.",
+      "Watling Street Variation, Webb Ellis Protocol, West Country Version, Windsor Rules and Winter Version were added once the user supplied the W page text. All 26 letters of the ISIHAC variations index are now represented."
+    ],
+    "licence": {
+      "summary": "Original entries and the JSON structure are released under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International: share and adapt with credit, non-commercially, under the same terms.",
+      "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    }
+  },
+  "rules": [
+    {
+      "id": "mc-001",
+      "name": "All Electric",
+      "description": "The board is electrified and each move is made by plugging in a connection to the chosen destination. Foul moves earn a mild shock. Three shocks and the player is sent to Nid.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-a.html",
+      "type": "penalty",
+      "enforceable": true,
+      "params": {
+        "foul_limit": 3,
+        "exile_to": "Nid"
+      },
+      "tags": [
+        "electric",
+        "exile"
+      ]
+    },
+    {
+      "id": "mc-002",
+      "name": "AI Assisted",
+      "description": "Every player has an AI chatbot on hand to guide them through what is promised to be a classic round.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-a.html",
+      "type": "format",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "ai",
+        "modern"
+      ]
+    },
+    {
+      "id": "mc-003",
+      "name": "Ancient Ceramic League Ruling",
+      "description": "Possibly played by Josiah Wedgwood himself. A strict time limit applies between moves and all blind side boundaries are suspended. Thrilling in expert hands.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-a.html",
+      "type": "time",
+      "enforceable": true,
+      "params": {
+        "time_limit_seconds": 10,
+        "blind_side_boundaries": false
+      },
+      "tags": [
+        "speed"
+      ]
+    },
+    {
+      "id": "mc-004",
+      "name": "Ancient & Modern",
+      "description": "A gentle set for a Chairman umpiring a first game. Nothing may be played outside Jessop's Loop, and a computerised solver is on trial.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-a.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {
+        "boundary": "Jessop's Loop"
+      },
+      "tags": [
+        "beginner"
+      ]
+    },
+    {
+      "id": "mc-005",
+      "name": "Argyle Street Parabola",
+      "description": "A maximum of two nudges is allowed, but only when the run of play is with the poke holder.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-a.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {
+        "max_nudges": 2
+      },
+      "tags": []
+    },
+    {
+      "id": "mc-006",
+      "name": "Armitage Shanks Charity Bowl",
+      "description": "Sponsored play for the honour of lifting the bowl. The sponsors requested small changes to the standard game, which listeners are unlikely to notice.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-a.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "sponsored"
+      ]
+    },
+    {
+      "id": "mc-007",
+      "name": "Beau Nash's Special Etiquette Version",
+      "description": "Gentlemen play against commoners. Play always passes to the left. Vulgarisms are penalised and wilfully obstructing another player's passage is forbidden.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-b.html",
+      "type": "turn_order",
+      "enforceable": false,
+      "params": {
+        "direction": "left",
+        "penalise": [
+          "vulgarisms",
+          "obstruction"
+        ]
+      },
+      "tags": [
+        "etiquette"
+      ]
+    },
+    {
+      "id": "mc-008",
+      "name": "Bethlehem Rules",
+      "description": "Connections involving a Shepherd, a King or an Ass count double.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-b.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "score_multiplier": 2,
+        "name_contains": [
+          "Shepherd",
+          "King",
+          "Ass"
+        ]
+      },
+      "tags": [
+        "seasonal"
+      ]
+    },
+    {
+      "id": "mc-009",
+      "name": "Black Country Variation",
+      "description": "The Chairman adopts a Black Country accent. Boffling is permitted only when deliberately going round the Wrekin, and a player who slummocks a looped diagonal must travel backwards on all bus routes.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-b.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "dialect"
+      ]
+    },
+    {
+      "id": "mc-010",
+      "name": "Blind Mornington Crescent",
+      "description": "An ancient variation demanding immense skill. Standard Ancient & Modern rules apply, but every player is blindfolded and cannot see the board.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-b.html",
+      "type": "format",
+      "enforceable": true,
+      "params": {
+        "hide_map": true
+      },
+      "tags": [
+        "hidden_information"
+      ]
+    },
+    {
+      "id": "mc-011",
+      "name": "Bog Standard Rules",
+      "description": "Points follow the Continuous Chain Method and count towards league standings in the Armitage Shanks Memorial Bowl.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-b.html",
+      "type": "scoring",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "league"
+      ]
+    },
+    {
+      "id": "mc-012",
+      "name": "Brighton Handicap",
+      "description": "The lateral shift can box opponents in or out of the game. Once Tooting Bec has been declared it is barred, unless two or more players are in Knip.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-b.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {
+        "disabled_after": "Tooting Bec"
+      },
+      "tags": []
+    },
+    {
+      "id": "mc-013",
+      "name": "Burlington Original Rules",
+      "description": "WC postcodes count double but may not follow one another. Crescents are wild because rule 42 is naturally suspended.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-b.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "score_multiplier": 2,
+        "postcode_prefix": "WC",
+        "no_consecutive": true,
+        "wild_name_contains": [
+          "Crescent"
+        ]
+      },
+      "tags": [
+        "postcode",
+        "wild"
+      ]
+    },
+    {
+      "id": "mc-014",
+      "name": "Cambridge Rules",
+      "description": "Inspired by Cambridge's ties to Russian spies. Stovold's Primary Rules apply, doubles are inverted and movement past the third perimeter is oblique. Moscow Metro stations may be played, but each must be introduced with the secret password.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-c.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "moscow_metro_stations_allowed": true,
+        "required_prefix_for": "moscow_metro",
+        "prefix": "secret password"
+      },
+      "tags": [
+        "spies"
+      ]
+    },
+    {
+      "id": "mc-015",
+      "name": "Carski's Protocol",
+      "description": "Following an MCA ruling, only single and triple Huffingtons are treated as lateral.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-c.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "huff"
+      ]
+    },
+    {
+      "id": "mc-016",
+      "name": "Central Standard Rules",
+      "description": "Play is limited to the original LCC boroughs under the Local Metropolitan Government Act of 1927. Teams not wearing bow ties forfeit their opening goes.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-c.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {
+        "area": "original LCC boroughs"
+      },
+      "tags": [
+        "boundary"
+      ]
+    },
+    {
+      "id": "mc-017",
+      "name": "Cockney Version",
+      "description": "Positional play is illegal on any given diagonal and every move must be preceded by the official rhyming slang.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-c.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "dialect"
+      ]
+    },
+    {
+      "id": "mc-018",
+      "name": "Coventry Ruling",
+      "description": "Played in Coventry. The rules are said to be best absorbed by listening to a game rather than reading about one.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-c.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "place"
+      ]
+    },
+    {
+      "id": "mc-019",
+      "name": "Crockfords Official Gambling Version",
+      "description": "Played with cards. The suits are Central, Circle, Northern and Bakerloo, mainline stations are trumps, and Mornington Crescent beats everything, including a royal flush. The player left of the dealer opens the bidding.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-c.html",
+      "type": "format",
+      "enforceable": false,
+      "params": {
+        "suits": [
+          "Central",
+          "Circle",
+          "Northern",
+          "Bakerloo"
+        ],
+        "trumps": "mainline_stations"
+      },
+      "tags": [
+        "cards"
+      ]
+    },
+    {
+      "id": "mc-020",
+      "name": "Derbyshire Huff",
+      "description": "A player landing on a huffing station can be huffed by the previous player, the huffer, which reverses the order of play until a new huff is huffed by a new huffer. Rule 7 is void.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-d.html",
+      "type": "turn_order",
+      "enforceable": true,
+      "params": {
+        "trigger": "huff",
+        "effect": "reverse_order"
+      },
+      "tags": [
+        "huff",
+        "reverse"
+      ]
+    },
+    {
+      "id": "mc-021",
+      "name": "Lancashire Rules",
+      "description": "Played in full dialect. Destinations apply above and before the laterals, diagonals are fine in both circumferences, and the Wigan directive is a guideline at best.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-l.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "dialect"
+      ]
+    },
+    {
+      "id": "mc-022",
+      "name": "Leapfrog Mornington Crescent",
+      "description": "Whenever a player scores a Huffington, play skips the next player and passes straight to the scorer's team mate. How Huffingtons are scored is assumed to be common knowledge.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-l.html",
+      "type": "turn_order",
+      "enforceable": true,
+      "params": {
+        "on": "huffington",
+        "skip_next_player": true
+      },
+      "tags": [
+        "team",
+        "huff"
+      ]
+    },
+    {
+      "id": "mc-023",
+      "name": "Liberal Coalition Rules",
+      "description": "Set down at the May Fair Synod of 1922 as Lloyd George's New May Fair Rules, not to be confused with his Further May Fair Rules. Prince of Wales Drive may only be approached from the south, and three Shepherds in a row earns a bonus point.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-l.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "approach_only": {
+          "Prince of Wales Drive": "south"
+        },
+        "bonus_points": {
+          "condition": "three consecutive stations containing Shepherd",
+          "points": 1
+        }
+      },
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "mc-024",
+      "name": "Lifts & Escalators",
+      "description": "A modern addition to the Ancient and Modern Rules. Play starts at Fairlop. Landing on an underground station with a working lift sends you straight back to Fairlop, while landing on an elevator catapults you to Chalk Farm Road.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-l.html",
+      "type": "start_position",
+      "enforceable": false,
+      "params": {
+        "start": "Fairlop",
+        "reset_to": "Fairlop"
+      },
+      "tags": [
+        "lifts"
+      ]
+    },
+    {
+      "id": "mc-025",
+      "name": "Lifts & Escalators (Children's Version)",
+      "description": "A simplified take on Morton's 12 Point Variation, made suitable for children.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-l.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "children"
+      ]
+    },
+    {
+      "id": "mc-026",
+      "name": "Liverpool Variation",
+      "description": "Imported from London by stokers on steam cargo ships. Being Stymied by your immediate opponent is Mating, and a blocked route is Docking. A player both Mated and Docked is in Heseltine and misses a turn.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-l.html",
+      "type": "penalty",
+      "enforceable": false,
+      "params": {
+        "conditions": [
+          "mated",
+          "docked"
+        ],
+        "penalty": "miss_turn"
+      },
+      "tags": [
+        "place"
+      ]
+    },
+    {
+      "id": "mc-027",
+      "name": "Living Mornington Crescent",
+      "description": "Players physically move around a large illustrated map. Standard Metropolitan Rules apply under Norton's 3rd Convention: no blocking, southern approaches out of bounds, and the Poke Holder always plays advantage.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-l.html",
+      "type": "format",
+      "enforceable": false,
+      "params": {
+        "blocking_allowed": false,
+        "forbidden_approach": "south"
+      },
+      "tags": [
+        "physical"
+      ]
+    },
+    {
+      "id": "mc-028",
+      "name": "Lord Grosvenor's Original Metropolitan Rules",
+      "description": "Devised in his time as Minister of Tourism, so scenic routes are favoured. National monuments score double and players must keep to zones 1 and 2.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-l.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "zones_allowed": [
+          1,
+          2
+        ],
+        "score_multiplier": 2,
+        "applies_to": "national_monument"
+      },
+      "tags": [
+        "zones",
+        "tourism"
+      ]
+    },
+    {
+      "id": "mc-029",
+      "name": "Lord Knaresborough's Yorkshire Variation",
+      "description": "First progression positional play is allowed only if diagonal and following a snicket, ginnel or similar. Blocked players retire to Nidd and miss three goes. Rule 8 is void and the Chairman speaks Yorkshire throughout.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-l.html",
+      "type": "penalty",
+      "enforceable": true,
+      "params": {
+        "blocked_penalty": {
+          "exile_to": "Nidd",
+          "miss_turns": 3
+        }
+      },
+      "tags": [
+        "dialect",
+        "exile"
+      ]
+    },
+    {
+      "id": "mc-030",
+      "name": "Lord Talbot's Variation of the Elementary Rules",
+      "description": "Does not need explaining.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-l.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "beginner"
+      ]
+    },
+    {
+      "id": "mc-031",
+      "name": "Mainline Stations are Wild",
+      "description": "Needs no expanding upon.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "wild",
+      "enforceable": true,
+      "params": {
+        "wild": "mainline_stations"
+      },
+      "tags": [
+        "wild"
+      ]
+    },
+    {
+      "id": "mc-032",
+      "name": "Military Version",
+      "description": "Outflanking on the diagonal is allowed only after a frontal assault. Pincer movements count double and an encircled player may deploy their trebuchet.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "scoring",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "military"
+      ]
+    },
+    {
+      "id": "mc-033",
+      "name": "Millennium Variation",
+      "description": "Popular at the last millennium and close to the Ancient Standard Rules, so the Reverse Diagonal is rarely used consecutively. Locations east of Shoreditch attract the Danegeld Penalty.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "penalty",
+      "enforceable": false,
+      "params": {
+        "penalty_area": "east of Shoreditch"
+      },
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "mc-034",
+      "name": "Montague's Second Revision",
+      "description": "Lateral movement is forbidden if you are out of bounds during a preliminary sequence.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {},
+      "tags": []
+    },
+    {
+      "id": "mc-035",
+      "name": "Moreton's Convention",
+      "description": "Horizontal play is allowed only when a pursuant has been Huffed. Mainline stations are wild.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "wild",
+      "enforceable": true,
+      "params": {
+        "wild": "mainline_stations"
+      },
+      "tags": [
+        "wild",
+        "huff"
+      ]
+    },
+    {
+      "id": "mc-036",
+      "name": "Moreton's 2nd Parallel",
+      "description": "Two consecutive parallel moves automatically reverse the order of play. Rule 7 is reinstated.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "turn_order",
+      "enforceable": false,
+      "params": {
+        "reverse_after": "two_parallel_moves"
+      },
+      "tags": [
+        "reverse"
+      ]
+    },
+    {
+      "id": "mc-037",
+      "name": "Morgantown Crescent",
+      "description": "The playing area stretches from the Severn Bridge to Anglesey. Reynolds's Standard Opening is ignored and the Welsh game has no Lateral Shift.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "format",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "place"
+      ]
+    },
+    {
+      "id": "mc-038",
+      "name": "Morningside Crescent",
+      "description": "A more refined Scottish version that mostly follows the standard rules, except that Shunting and Straddling are generally frowned upon.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "place"
+      ]
+    },
+    {
+      "id": "mc-039",
+      "name": "Mornington Crefent",
+      "description": "An early Tudor version where the king umpires and sanctions every move. A surviving scrap of parchment warns against straying within the bounds of the Thames and says Tyburn cannot be reached without sacrificing three named squares.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {
+        "out_of_bounds": "Thames"
+      },
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "mc-040",
+      "name": "Mornington Croissant",
+      "description": "English Ancient and Modern rules with French adjustments. Chalk Farm or Shepherd's Bush earns a three move subsidy, and naming any mainline station makes the next player miss a turn or go on strike.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "penalty",
+      "enforceable": true,
+      "params": {
+        "bonus": {
+          "stations": [
+            "Chalk Farm",
+            "Shepherd's Bush"
+          ],
+          "free_moves": 3
+        },
+        "skip_next_on": "mainline_station"
+      },
+      "tags": [
+        "french",
+        "place"
+      ]
+    },
+    {
+      "id": "mc-041",
+      "name": "Mornington Royal Crescent",
+      "description": "A clever variation that fell out of fashion because cyclical play made games drag on. The recently introduced Looped Move is said to have helped.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "loop"
+      ]
+    },
+    {
+      "id": "mc-042",
+      "name": "Mortimer's 2nd Amendment",
+      "description": "Highly specialised. Once Parsons Green is declared, play is forced along the Great Western axis and players must sacrifice Seven Sisters to prise open an opponent's laterals.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {
+        "trigger": "Parsons Green",
+        "forced_axis": "Great Western"
+      },
+      "tags": []
+    },
+    {
+      "id": "mc-043",
+      "name": "Mortimer's Variation, Version 3",
+      "description": "Panellists take on a computer called Elektra, running the latest software from Silicone Valley.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-m.html",
+      "type": "format",
+      "enforceable": true,
+      "params": {
+        "opponent": "computer",
+        "opponent_name": "Elektra"
+      },
+      "tags": [
+        "ai",
+        "computer"
+      ]
+    },
+    {
+      "id": "mc-044",
+      "name": "Nautical Version",
+      "description": "Developed by French sailors captured in the Napoleonic wars. Under the Martello Convention of 1807, repeating an opponent's declaration reverses the order of play, and this is encouraged. Sudden starboard diagonals are Tacking, and a blocked player is in Poop and misses a turn.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-n.html",
+      "type": "turn_order",
+      "enforceable": true,
+      "params": {
+        "repeat_opponent_reverses_order": true,
+        "blocked_penalty": "miss_turn"
+      },
+      "tags": [
+        "reverse",
+        "history"
+      ]
+    },
+    {
+      "id": "mc-045",
+      "name": "New Standard Livingston Rules",
+      "description": "Pedestrianised squares are out of bounds and locations subject to a congestion charge incur a forfeit.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-n.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "out_of_bounds": "pedestrianised_squares",
+        "forfeit_on": "congestion_charge_zone"
+      },
+      "tags": [
+        "boundary"
+      ]
+    },
+    {
+      "id": "mc-046",
+      "name": "Normal Rules",
+      "description": "Sponsored by a paintballing centre. Huffs are lateral, shunts must be non-linear, and incorrect challenges are punished at the Chairman's discretion using a paintball shotgun.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-n.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "sponsored"
+      ]
+    },
+    {
+      "id": "mc-047",
+      "name": "North Circular Open & General Rules",
+      "description": "All avenues are straight functioning. Mortimer's Bakerloo Gambit is allowed, so Elephant & Castle counts treble.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-n.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "score_multiplier": 3,
+        "stations": [
+          "Elephant & Castle"
+        ]
+      },
+      "tags": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "mc-048",
+      "name": "North London Rules",
+      "description": "Contraflows are inverted, and to avoid Triangulation Dollis Hill is wild.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-n.html",
+      "type": "wild",
+      "enforceable": true,
+      "params": {
+        "wild": [
+          "Dollis Hill"
+        ]
+      },
+      "tags": [
+        "wild"
+      ]
+    },
+    {
+      "id": "mc-049",
+      "name": "Northern League Version",
+      "description": "Made popular by the monks of Kirkstall Abbey. Cloistering is allowed only after Kensal Rise has been played, and a slow player may be declared Trappist by the player on their left, staying silent for two moves.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-n.html",
+      "type": "penalty",
+      "enforceable": false,
+      "params": {
+        "unlock_after": "Kensal Rise",
+        "silence_moves": 2
+      },
+      "tags": [
+        "monks"
+      ]
+    },
+    {
+      "id": "mc-050",
+      "name": "Official American Rules",
+      "description": "The winner is decided before the game and may start whenever they like. Tourist sites count double, Grosvenor Square is wild, any Bush related move trumps, and asking for directions is permitted.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-o.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "score_multiplier": 2,
+        "applies_to": "tourist_attraction",
+        "wild": [
+          "Grosvenor Square"
+        ]
+      },
+      "tags": [
+        "place"
+      ]
+    },
+    {
+      "id": "mc-051",
+      "name": "Old Boardgame Version",
+      "description": "A pale imitation of the real thing, dictated by dice rather than strategy, but useful for new players still learning the rules.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-o.html",
+      "type": "format",
+      "enforceable": true,
+      "params": {
+        "move_selection": "dice"
+      },
+      "tags": [
+        "beginner",
+        "dice"
+      ]
+    },
+    {
+      "id": "mc-052",
+      "name": "Regency Rules",
+      "description": "The Nash Convention allows superseding after parallel moves, and all Terraces and Crescents are wild, unless you happen to be in Spoon.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-r.html",
+      "type": "wild",
+      "enforceable": true,
+      "params": {
+        "wild_name_contains": [
+          "Terrace",
+          "Crescent"
+        ]
+      },
+      "tags": [
+        "wild",
+        "history"
+      ]
+    },
+    {
+      "id": "mc-053",
+      "name": "Reverse Mornington Crescent",
+      "description": "Play begins at Mornington Crescent and proceeds backwards until someone reaches the starting position.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-r.html",
+      "type": "start_position",
+      "enforceable": true,
+      "params": {
+        "start": "Mornington Crescent",
+        "goal": "original_start"
+      },
+      "tags": [
+        "reverse"
+      ]
+    },
+    {
+      "id": "mc-054",
+      "name": "Royal & Ancient Rules",
+      "description": "A player forced out of bounds takes the nearest playable station, usually Charing Cross. Water hazards cost a turn, though you can still Stymie an opponent by blocking their passage.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-r.html",
+      "type": "penalty",
+      "enforceable": true,
+      "params": {
+        "out_of_bounds_reset": "Charing Cross",
+        "water_hazard_penalty": "miss_turn"
+      },
+      "tags": [
+        "golf"
+      ]
+    },
+    {
+      "id": "mc-055",
+      "name": "Royal Mornington Crescent",
+      "description": "Made fashionable by Charles II. Play runs strictly in order of social superiority, and it is bad manners for those lower down to block, box, reverse or win.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-r.html",
+      "type": "turn_order",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "etiquette"
+      ]
+    },
+    {
+      "id": "mc-056",
+      "name": "Royal Windsor Version",
+      "description": "Progression is stately and waving is optional. Destinations with royal connections score double and river stations are barred unless the Queen's Barge Master is present.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-r.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "score_multiplier": 2,
+        "applies_to": "royal_connection",
+        "out_of_bounds": "river_stations"
+      },
+      "tags": [
+        "royal"
+      ]
+    },
+    {
+      "id": "mc-057",
+      "name": "SatNav Assisted",
+      "description": "Each player programs a satnav with a route from Liverpool Street to Mornington Crescent that respects Montecute's Secondary Station Ruling.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "format",
+      "enforceable": true,
+      "params": {
+        "start": "Liverpool Street",
+        "goal": "Mornington Crescent",
+        "route_planning": true
+      },
+      "tags": [
+        "modern"
+      ]
+    },
+    {
+      "id": "mc-058",
+      "name": "Shropshire Hold'em",
+      "description": "Flushes count double, straights take preference and queens are wild. The Chairman deals.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "format",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "cards"
+      ]
+    },
+    {
+      "id": "mc-059",
+      "name": "Simplified Version",
+      "description": "Stovold's Defence is still allowed during Forward Triangulation, but Back Doubling may only follow a Northern Approach.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "beginner"
+      ]
+    },
+    {
+      "id": "mc-060",
+      "name": "Snakes and Ladders Version",
+      "description": "Certain destinations carry a snake or a ladder, sending whoever lands there back or forward to a set destination. Stovold's Looping Protocol is enforced.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "format",
+      "enforceable": true,
+      "params": {
+        "snakes": [],
+        "ladders": []
+      },
+      "tags": [
+        "board_game",
+        "teleport"
+      ]
+    },
+    {
+      "id": "mc-061",
+      "name": "Southwark Method",
+      "description": "An open variation with a warning: if pairing occurs during positional play after a neutral move with the diagonals quartered, the overboard player must sacrifice Fairlop to progress or risk passing at a secondary tangent.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": []
+    },
+    {
+      "id": "mc-062",
+      "name": "Special Children's Junior Version",
+      "description": "To keep things easy, Waterloo Mainline is irreversible if approached on the diagonal during a lateral pass.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {
+        "irreversible": [
+          "Waterloo"
+        ]
+      },
+      "tags": [
+        "children"
+      ]
+    },
+    {
+      "id": "mc-063",
+      "name": "Speed Mornington Crescent",
+      "description": "Every move is against a strict time limit with a special clock. Run out of time and you are eliminated. Stations are high.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "time",
+      "enforceable": true,
+      "params": {
+        "time_limit_seconds": 10,
+        "on_timeout": "eliminate"
+      },
+      "tags": [
+        "speed"
+      ]
+    },
+    {
+      "id": "mc-064",
+      "name": "Spooner's Crornington Mescent",
+      "description": "Named for the Oxford don famed for scrambling his words. An opening translocation is compulsory, loops count double, and huffing on the out-pass costs two backings. Players in Knipp forfeit parallel house points.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "scoring",
+      "enforceable": false,
+      "params": {
+        "loop_multiplier": 2
+      },
+      "tags": [
+        "wordplay"
+      ]
+    },
+    {
+      "id": "mc-065",
+      "name": "Standard Essex Protocols",
+      "description": "Obliques are allowed only with the Chair's prior agreement, and players found outside the lateral may be placed in Knipp at the Chair's discretion.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {
+        "requires_chair_approval": [
+          "oblique"
+        ]
+      },
+      "tags": [
+        "chair"
+      ]
+    },
+    {
+      "id": "mc-066",
+      "name": "Standard Metropolitan Variation",
+      "description": "Kept as simple as possible to spare a relative novice. Rule 2 is suspended and Prime Move Triangulations may only be made within a lateral orbit.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {
+        "suspended_rules": [
+          2
+        ]
+      },
+      "tags": [
+        "beginner"
+      ]
+    },
+    {
+      "id": "mc-067",
+      "name": "Standard Olympic Rules",
+      "description": "Locations connected with Greece or Athens score double. Greek Street and Olympia are out of bounds.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "score_multiplier": 2,
+        "name_contains": [
+          "Greek",
+          "Athens"
+        ],
+        "out_of_bounds": [
+          "Greek Street",
+          "Olympia"
+        ]
+      },
+      "tags": [
+        "sport"
+      ]
+    },
+    {
+      "id": "mc-068",
+      "name": "Stick or Twist Version",
+      "description": "Each player may twist and move on, or stick and stay where they are. Laterals are excluded and there are no trumps.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "format",
+      "enforceable": true,
+      "params": {
+        "allow_stay": true,
+        "laterals": false,
+        "trumps": false
+      },
+      "tags": [
+        "cards"
+      ]
+    },
+    {
+      "id": "mc-069",
+      "name": "Stovold's 2nd Amendment to the Standard Convention (1972)",
+      "description": "Predates the Jubilee Line extensions in both directions, as you would expect.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "mc-070",
+      "name": "Street Level Rules",
+      "description": "Popular after Mornington Crescent reopened and the Faulty Elevators are Wild rule was revoked.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "mc-071",
+      "name": "Surrey Rules",
+      "description": "Basic Surrey Rules modified by the Poultry Farm Variation. One extra point for a farming location, two for birds and three for poultry. No penalty for gridding the diagonal, but beware obtuse contact.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-s.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "bonus_points": {
+          "farming": 1,
+          "bird": 2,
+          "poultry": 3
+        }
+      },
+      "tags": [
+        "bonus"
+      ]
+    },
+    {
+      "id": "mc-072",
+      "name": "Tetzel's Nomination",
+      "description": "A simple game in which any move containing a person's name counts double.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-t.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "score_multiplier": 2,
+        "name_contains_person": true
+      },
+      "tags": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "mc-073",
+      "name": "Thornton's Controversial 3rd Amendment",
+      "description": "Teams should watch for the obvious trap when Crosshatching. Any station can be Trumped, even out of Kilter.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-t.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": []
+    },
+    {
+      "id": "mc-074",
+      "name": "Timed Mornington Crescent",
+      "description": "Every move must be made within a set time limit and overruns are penalised. New players get Rule 2 suspended.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-t.html",
+      "type": "time",
+      "enforceable": true,
+      "params": {
+        "time_limit_seconds": 15,
+        "on_timeout": "penalty"
+      },
+      "tags": [
+        "speed"
+      ]
+    },
+    {
+      "id": "mc-075",
+      "name": "Tobermory's Stratagem",
+      "description": "Rush an opponent by calling the same destination straight after them (the Cross Blocker) and sending them to the nearest free base, usually Ongar, from where they need at least four moves to strike. King's Cross is wild.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-t.html",
+      "type": "turn_order",
+      "enforceable": true,
+      "params": {
+        "repeat_call_sends_opponent_to": "Ongar",
+        "min_moves_to_win_from_there": 4,
+        "wild": [
+          "King's Cross"
+        ]
+      },
+      "tags": [
+        "blocker",
+        "wild"
+      ]
+    },
+    {
+      "id": "mc-076",
+      "name": "Toksvig's Protocol",
+      "description": "Deception is essential. Listen for the Reverse Dummy and the Blocker's Feint. Team play is emphasised and discreet non-verbal signals are allowed between team mates.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-t.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {
+        "team_signals_allowed": true
+      },
+      "tags": [
+        "team",
+        "deception"
+      ]
+    },
+    {
+      "id": "mc-077",
+      "name": "Toon Rules",
+      "description": "The Chairman speaks in the Newcastle vernacular. St James' Park, Newcastle Castle and Grey's Monument are out of bounds, though the Swing Bridge and Chinatown are perfectly fine.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-t.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "out_of_bounds": [
+          "St James' Park",
+          "Newcastle Castle",
+          "Grey's Monument"
+        ]
+      },
+      "tags": [
+        "place",
+        "dialect"
+      ]
+    },
+    {
+      "id": "mc-078",
+      "name": "Trivia Mornington Crescent",
+      "description": "Played more or less to Mortimer's 1952 Variation (Original), minus the huffing.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-t.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "huffing": false
+      },
+      "tags": [
+        "trivia"
+      ]
+    },
+    {
+      "id": "mc-079",
+      "name": "Trumpington's Variation",
+      "description": "A refined, highly cerebral variation preferred by intellectuals. It produces a defensive game in which players must avoid being Blocked, Boxed or Cornered.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-t.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "strategy"
+      ]
+    },
+    {
+      "id": "mc-080",
+      "name": "Tudor Court Rules",
+      "description": "Adopted by Henry VIII and probably played by Shakespeare. The playing area is smaller and many streets are closed due to plague. The codpiece rule lets the holder nominate, except when out of Croop.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-t.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "mc-081",
+      "name": "Bakerloo Doubling",
+      "description": "Stations on the Bakerloo line score double. Nobody has ever explained why, and the Bakerloo line has not asked.",
+      "source": "original",
+      "source_url": null,
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "score_multiplier": 2,
+        "line": "Bakerloo"
+      },
+      "tags": [
+        "line"
+      ]
+    },
+    {
+      "id": "mc-082",
+      "name": "Mind the Gap",
+      "description": "No two consecutive moves may use the same line. Players are reminded of this at length by a recorded voice that nobody can switch off.",
+      "source": "original",
+      "source_url": null,
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "no_consecutive_same_line": true
+      },
+      "tags": [
+        "line"
+      ]
+    },
+    {
+      "id": "mc-083",
+      "name": "Zone Diplomacy",
+      "description": "Moving more than one fare zone in a single turn is considered aggressive. The offending player misses their next go while relations are repaired.",
+      "source": "original",
+      "source_url": null,
+      "type": "penalty",
+      "enforceable": true,
+      "params": {
+        "max_zone_jump": 1,
+        "penalty": "miss_turn"
+      },
+      "tags": [
+        "zones"
+      ]
+    },
+    {
+      "id": "mc-084",
+      "name": "Piccadilly Circus Rule",
+      "description": "Any station with Circus in its name earns a free extra move. Juggling is not required but is noted approvingly.",
+      "source": "original",
+      "source_url": null,
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "free_move_on_name_contains": "Circus"
+      },
+      "tags": [
+        "bonus"
+      ]
+    },
+    {
+      "id": "mc-085",
+      "name": "Apologetic Rules",
+      "description": "Every move must open with the words 'Sorry, but'. A player who forgets is deemed rude and misses a turn.",
+      "source": "original",
+      "source_url": null,
+      "type": "penalty",
+      "enforceable": true,
+      "params": {
+        "required_prefix": "Sorry, but",
+        "penalty": "miss_turn"
+      },
+      "tags": [
+        "etiquette"
+      ]
+    },
+    {
+      "id": "mc-086",
+      "name": "Clapham Junction Exemption",
+      "description": "Clapham Junction may be played at any time, but it never counts as a move. It is thought to be busy enough already.",
+      "source": "original",
+      "source_url": null,
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "exempt_station": "Clapham Junction",
+        "counts_as_move": false
+      },
+      "tags": [
+        "exemption"
+      ]
+    },
+    {
+      "id": "mc-087",
+      "name": "Downhill Only",
+      "description": "Each move must go to the same fare zone or a lower one. Once a player reaches Zone 1 they are stuck there, which is broadly the point of the game. A player with no legal move simply passes.",
+      "source": "original",
+      "source_url": null,
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "zone_direction": "non_increasing",
+        "no_legal_move": "pass"
+      },
+      "tags": [
+        "zones"
+      ]
+    },
+    {
+      "id": "mc-088",
+      "name": "Rush Hour Protocol",
+      "description": "Every fifth turn, all players must move to a Zone 1 station. Standing room only, and no apology is offered.",
+      "source": "original",
+      "source_url": null,
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "every_nth_turn": 5,
+        "forced_zone": 1
+      },
+      "tags": [
+        "zones",
+        "timing"
+      ]
+    },
+    {
+      "id": "mc-089",
+      "name": "Night Tube Rules",
+      "description": "Only stations served by the Night Tube may be played. The Chairman insists it is always after midnight.",
+      "source": "original",
+      "source_url": null,
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "allowed": "night_tube_stations"
+      },
+      "tags": [
+        "timing"
+      ]
+    },
+    {
+      "id": "mc-090",
+      "name": "Oyster Balance",
+      "description": "Each player begins with ten credits. Every fare zone crossed costs one credit. A player who reaches zero is eliminated and told to top up at a machine that is out of order.",
+      "source": "original",
+      "source_url": null,
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "starting_credits": 10,
+        "cost_per_zone_crossed": 1,
+        "on_zero": "eliminate"
+      },
+      "tags": [
+        "economy"
+      ]
+    },
+    {
+      "id": "mc-091",
+      "name": "Signal Failure",
+      "description": "At the start of each round the Chairman closes one station at random. Playing it costs a turn, and an announcement will blame the previous train.",
+      "source": "original",
+      "source_url": null,
+      "type": "penalty",
+      "enforceable": true,
+      "params": {
+        "closed_stations_per_round": 1,
+        "selection": "random",
+        "penalty": "miss_turn"
+      },
+      "tags": [
+        "random"
+      ]
+    },
+    {
+      "id": "mc-092",
+      "name": "Replacement Bus Service",
+      "description": "When the Chairman declares a line suspended, players must name a bus route before any station on it. Any bus route will do, and it need not be nearby.",
+      "source": "original",
+      "source_url": null,
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "bus"
+      ]
+    },
+    {
+      "id": "mc-093",
+      "name": "Leaves on the Line",
+      "description": "From September to November, playing any Overground station delays that player by one turn. Nobody can say which leaves.",
+      "source": "original",
+      "source_url": null,
+      "type": "penalty",
+      "enforceable": true,
+      "params": {
+        "active_months": [
+          9,
+          10,
+          11
+        ],
+        "applies_to": "overground",
+        "penalty": "delay_one_turn"
+      },
+      "tags": [
+        "seasonal"
+      ]
+    },
+    {
+      "id": "mc-094",
+      "name": "Alphabetical Order Rules",
+      "description": "Each station must begin with the letter following the initial of the previous one. Z is followed by A, and complaints go to the Chairman, who will be at lunch.",
+      "source": "original",
+      "source_url": null,
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "initial_letter": "next_in_alphabet",
+        "wrap": true
+      },
+      "tags": [
+        "letters"
+      ]
+    },
+    {
+      "id": "mc-095",
+      "name": "Terminus Rules",
+      "description": "Terminus stations score triple. The player must then miss a turn while the train is turned around.",
+      "source": "original",
+      "source_url": null,
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "score_multiplier": 3,
+        "stations": "termini",
+        "then": "miss_turn"
+      },
+      "tags": [
+        "scoring"
+      ]
+    },
+    {
+      "id": "mc-096",
+      "name": "Quiet Carriage Rules",
+      "description": "Stations must be declared at no more than a whisper. Anyone heard from the far end of the room is tutted at, twice.",
+      "source": "original",
+      "source_url": null,
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "etiquette"
+      ]
+    },
+    {
+      "id": "mc-097",
+      "name": "Lost Property",
+      "description": "The Chairman secretly picks one station as the Lost Property Office. The first player to land there collects an umbrella and may make an opponent miss a turn.",
+      "source": "original",
+      "source_url": null,
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "hidden_stations": 1,
+        "reward": "opponent_misses_turn"
+      },
+      "tags": [
+        "hidden_information"
+      ]
+    },
+    {
+      "id": "mc-098",
+      "name": "Wilkins' 4th Corollary",
+      "description": "A move is valid only if the station name has an even number of letters, spaces excluded. Odd names are challenged with great solemnity.",
+      "source": "original",
+      "source_url": null,
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "name_length_parity": "even",
+        "count": "letters_excluding_spaces"
+      },
+      "tags": [
+        "letters"
+      ]
+    },
+    {
+      "id": "mc-099",
+      "name": "Twin Letters Rule",
+      "description": "Stations containing a double letter score double. Tooting Bec is said to be the finest example, though Chairman rulings on Tooting remain pending.",
+      "source": "original",
+      "source_url": null,
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "score_multiplier": 2,
+        "condition": "contains_double_letter"
+      },
+      "tags": [
+        "letters"
+      ]
+    },
+    {
+      "id": "mc-100",
+      "name": "Day of the Week Protocol",
+      "description": "On Tuesdays the Central line is unavailable. On every other day it is available, but rumoured to be running slowly.",
+      "source": "original",
+      "source_url": null,
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "weekday": "Tuesday",
+        "unavailable_line": "Central"
+      },
+      "tags": [
+        "timing",
+        "line"
+      ]
+    },
+    {
+      "id": "mc-101",
+      "name": "Old Devonshire Version",
+      "description": "As enjoyed by Sir Francis Drake. Broadly standard, except that a Strike Move lets you knock an opponent out of position. Players are traditionally over 70 and wear white jackets.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-o.html",
+      "type": "penalty",
+      "enforceable": false,
+      "params": {
+        "strike_move": true
+      },
+      "tags": [
+        "history",
+        "place"
+      ]
+    },
+    {
+      "id": "mc-102",
+      "name": "Old Etonian Rules",
+      "description": "All suburban areas are out of bounds and the senior player has right of way when two players are Boxed. A move that earns applause puts the player In Pop, entitling them to a silly floral waistcoat and an out of turn move.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-o.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {
+        "out_of_bounds": "suburban_stations"
+      },
+      "tags": [
+        "etiquette"
+      ]
+    },
+    {
+      "id": "mc-103",
+      "name": "Original Metropolitan Rules",
+      "description": "Seldom played, though there is nothing to fear except the notorious Pimlico Proviso. To be safe, the Chairman allows the use of a sat nav.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-o.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "history"
+      ]
+    },
+    {
+      "id": "mc-104",
+      "name": "Original Modern Rules",
+      "description": "No Squaring Off on the blind side. Euston Road may only be approached from the west and Soho is out of bounds.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-o.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "approach_only": {
+          "Euston Road": "west"
+        },
+        "out_of_bounds": [
+          "Soho"
+        ]
+      },
+      "tags": [
+        "boundary"
+      ]
+    },
+    {
+      "id": "mc-105",
+      "name": "Original Standard Rules",
+      "description": "Considered by many the purest form of the game. Teams start at Aldgate East and play sequentially and in order. Rule 12 no longer applies, although rule 12a remains in force, and rule 12a states that rule 12 no longer applies.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-o.html",
+      "type": "start_position",
+      "enforceable": true,
+      "params": {
+        "start": "Aldgate East",
+        "sequential": true
+      },
+      "tags": [
+        "classic",
+        "beginner"
+      ]
+    },
+    {
+      "id": "mc-106",
+      "name": "Oxford Rules Devised by Lewis Carroll",
+      "description": "Carroll's nonsense version of the game, in which progression runs backwards and Stovold's Advancement works in reverse. Otherwise normal.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-o.html",
+      "type": "turn_order",
+      "enforceable": true,
+      "params": {
+        "turn_order": "reverse"
+      },
+      "tags": [
+        "history",
+        "reverse"
+      ]
+    },
+    {
+      "id": "mc-107",
+      "name": "Hackney Carriage Society Rule Book",
+      "description": "Players must show they know the Knowledge by explaining their route plan between moves. U-turns count double, airports count triple, and anywhere south of the river is out of bounds.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-h.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "explain_route_required": true,
+        "score_multipliers": {
+          "u_turn": 2,
+          "airport": 3
+        },
+        "out_of_bounds": "south_of_thames"
+      },
+      "tags": [
+        "taxi"
+      ]
+    },
+    {
+      "id": "mc-108",
+      "name": "Handicap Hurdles",
+      "description": "A racing variant run over five furlongs with four runners: one outsider, one blinkered as usual and one largely unfancied. Tattersall's Variation applies, so all vectored points are valid provided the player is mounted. Going is good to firm.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-h.html",
+      "type": "format",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "racing"
+      ]
+    },
+    {
+      "id": "mc-109",
+      "name": "Hooper's Mainline Variation",
+      "description": "A spiteful version resembling Association Croquet. Making a call identical to the previous player's earns an extra move, and the better the extra move, the further you can force your opponent outside the Central Metropolitan Area.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-h.html",
+      "type": "turn_order",
+      "enforceable": true,
+      "params": {
+        "repeat_call_grants_extra_move": true
+      },
+      "tags": [
+        "croquet",
+        "blocker"
+      ]
+    },
+    {
+      "id": "mc-110",
+      "name": "Hugo's 2nd Stratagem",
+      "description": "Moves across consecutive rows are prohibited unless you are in Knip.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-h.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {},
+      "tags": []
+    },
+    {
+      "id": "mc-111",
+      "name": "Mornington Peninsula",
+      "description": "An Australian variant mentioned in the show. No mechanics are recorded, so any station names from Victoria will do.",
+      "source": "wikipedia",
+      "source_url": "https://en.wikipedia.org/wiki/Mornington_Crescent_(game)",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "place",
+        "international"
+      ]
+    },
+    {
+      "id": "mc-112",
+      "name": "Boston Chain",
+      "description": "Each station must begin with the last letter of the previous one. Adapted from a puzzle-hunt take on the game.",
+      "source": "puzzle",
+      "source_url": "https://web.mit.edu/activities/puzzle/2013/coinheist.com/indiana/world_series_of_mornington_crescent/index.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "initial_matches_previous_last_letter": true
+      },
+      "tags": [
+        "letters",
+        "puzzle"
+      ]
+    },
+    {
+      "id": "mc-113",
+      "name": "Stockholm Two Stops",
+      "description": "Every move must land exactly two stops along a line from the previous station.",
+      "source": "puzzle",
+      "source_url": "https://web.mit.edu/activities/puzzle/2013/coinheist.com/indiana/world_series_of_mornington_crescent/index.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "stops_along_line": 2
+      },
+      "tags": [
+        "distance",
+        "puzzle"
+      ]
+    },
+    {
+      "id": "mc-114",
+      "name": "New York Line Cycle",
+      "description": "Each move must use the next line in alphabetical order, cycling back to the start after the last.",
+      "source": "puzzle",
+      "source_url": "https://web.mit.edu/activities/puzzle/2013/coinheist.com/indiana/world_series_of_mornington_crescent/index.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "line_order": "alphabetical_cycle"
+      },
+      "tags": [
+        "line",
+        "puzzle"
+      ]
+    },
+    {
+      "id": "mc-115",
+      "name": "Paris Letter Count",
+      "description": "Count the letters in the station just named and move that many stops along a line.",
+      "source": "puzzle",
+      "source_url": "https://web.mit.edu/activities/puzzle/2013/coinheist.com/indiana/world_series_of_mornington_crescent/index.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "stops_equal_letter_count": true
+      },
+      "tags": [
+        "letters",
+        "distance",
+        "puzzle"
+      ]
+    },
+    {
+      "id": "mc-116",
+      "name": "Washington Crossing",
+      "description": "The next station must be on the same line but on the other side of the river.",
+      "source": "puzzle",
+      "source_url": "https://web.mit.edu/activities/puzzle/2013/coinheist.com/indiana/world_series_of_mornington_crescent/index.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "same_line": true,
+        "cross_river": true
+      },
+      "tags": [
+        "river",
+        "puzzle"
+      ]
+    },
+    {
+      "id": "mc-117",
+      "name": "Moscow Word Length",
+      "description": "The first or last word of the new station must be the same length as the equivalent word in the previous one. Single word names are disallowed.",
+      "source": "puzzle",
+      "source_url": "https://web.mit.edu/activities/puzzle/2013/coinheist.com/indiana/world_series_of_mornington_crescent/index.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "word_length_match": "first_or_last",
+        "single_word_names_allowed": false
+      },
+      "tags": [
+        "letters",
+        "puzzle"
+      ]
+    },
+    {
+      "name": "Elimination Mornington Crescent",
+      "description": "The teams work together, trying to accumulate as many points as possible as the game runs on. At certain points, though, the Chairman asks each panellist to vote off whoever they consider is not pulling their weight.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-e.html",
+      "type": "penalty",
+      "enforceable": true,
+      "params": {
+        "cooperative_scoring": true,
+        "vote_off_trigger": "chairman_declared",
+        "vote_off_by": "panel"
+      },
+      "tags": [
+        "elimination",
+        "team",
+        "tv"
+      ],
+      "id": "mc-118"
+    },
+    {
+      "name": "Grand Prix Version",
+      "description": "Pioneered by H. W. M. Stirling, one of the greatest exponents of the Speed Game. As with the Speed Game, Pit Stops are mandatory, and the speed limit is back in force the moment a player crosses the white line.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-g.html",
+      "type": "time",
+      "enforceable": true,
+      "params": {
+        "pit_stops_mandatory": true,
+        "speed_limit_resumes_after": "white_line"
+      },
+      "tags": [
+        "speed",
+        "history"
+      ],
+      "id": "mc-119"
+    },
+    {
+      "name": "Grand Quarter Final Rules",
+      "description": "Huffing is allowed only after the first Triptych has been declared, and the onside rule is reinstated. Players may challenge for positional justification and take over play, but only when in sequence.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-g.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "huffing_unlocked_after": "first_triptych",
+        "onside_rule": true,
+        "positional_challenge_requires": "in_sequence"
+      },
+      "tags": [
+        "knockout"
+      ],
+      "id": "mc-120"
+    },
+    {
+      "name": "Green Mornington Crescent",
+      "description": "Pedestrian precincts count double, and bus lanes are wild.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-g.html",
+      "type": "scoring",
+      "enforceable": true,
+      "params": {
+        "score_multiplier": 2,
+        "applies_to": "pedestrian_precinct",
+        "wild": "bus_lanes"
+      },
+      "tags": [
+        "environmental"
+      ],
+      "id": "mc-121"
+    },
+    {
+      "name": "Parker's 1st Principle",
+      "description": "A late 19th century variation on the traditional game, often cited as a precursor to Monopoly, though it is hard to see why. Best understood by listening to it being played rather than reading about it.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-p.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {},
+      "tags": [
+        "history"
+      ],
+      "id": "mc-122"
+    },
+    {
+      "name": "Playstation 2 Version",
+      "description": "Developed to make the game more user friendly for the modern generation of players. Any foul move made during play is signalled by the computer with an error sound.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-p.html",
+      "type": "penalty",
+      "enforceable": true,
+      "params": {
+        "foul_move_feedback": "error_sound"
+      },
+      "tags": [
+        "modern",
+        "computer"
+      ],
+      "id": "mc-123"
+    },
+    {
+      "name": "UKIP Version",
+      "description": "Players may challenge to have a move excluded if they spot a nasty European or other foreign connection.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-u.html",
+      "type": "restriction",
+      "enforceable": false,
+      "params": {
+        "challengeable_on": "foreign_or_european_connection"
+      },
+      "tags": [
+        "political",
+        "history"
+      ],
+      "id": "mc-124"
+    },
+    {
+      "name": "Watling Street Variation",
+      "description": "Players may only take the direct route between any two given points. Looped moves are disallowed and the Circle Line is out of bounds. Huffing, however, is still permitted.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-w.html",
+      "type": "restriction",
+      "enforceable": true,
+      "params": {
+        "direct_route_only": true,
+        "looped_moves_allowed": false,
+        "out_of_bounds": [
+          "Circle Line"
+        ],
+        "huffing_allowed": true
+      },
+      "tags": [
+        "route",
+        "roman"
+      ],
+      "id": "mc-125"
+    },
+    {
+      "name": "Webb Ellis Protocol",
+      "description": "An intercepted player can be turned over, particularly if not running straight, and any irregular movement forces a temporary surrender of the advantage line. Positional over-rulings are at the discretion of the third official.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-w.html",
+      "type": "penalty",
+      "enforceable": true,
+      "params": {
+        "interception_turnover": true,
+        "irregular_movement_penalty": "surrender_advantage_line",
+        "overrule_authority": "third_official"
+      },
+      "tags": [
+        "rugby"
+      ],
+      "id": "mc-126"
+    },
+    {
+      "name": "West Country Version",
+      "description": "Played to Stovold's Revised Rules with West Country modifications. Transverse moves below the meridian are permitted only with parallel coping. Streets are wild, but Royal indicators may incur double penalties.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-w.html",
+      "type": "wild",
+      "enforceable": true,
+      "params": {
+        "base_ruleset": "Stovold's Revised Rules",
+        "transverse_below_meridian_requires": "parallel_coping",
+        "wild_name_contains": [
+          "Street"
+        ],
+        "penalty_multiplier": {
+          "royal_indicator": 2
+        }
+      },
+      "tags": [
+        "dialect",
+        "place"
+      ],
+      "id": "mc-127"
+    },
+    {
+      "name": "Windsor Rules",
+      "description": "Only the senior player in a straight line may inherit possession, unless the Hapsburg Convention has been invoked, in which case Grimaldi's Protocol takes precedence.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-w.html",
+      "type": "turn_order",
+      "enforceable": false,
+      "params": {
+        "inheritance": "senior_player_in_line",
+        "override": "Hapsburg Convention",
+        "override_precedence": "Grimaldi's Protocol"
+      },
+      "tags": [
+        "royal",
+        "history"
+      ],
+      "id": "mc-128"
+    },
+    {
+      "name": "Winter Version",
+      "description": "Players may find themselves slipping into Nog at any time, and pistes can be negotiated in a straight slide or in a herring bone pattern.",
+      "source": "isihac",
+      "source_url": "http://www.isihac.co.uk/games/mcvariations/mc-w.html",
+      "type": "flavour",
+      "enforceable": false,
+      "params": {
+        "hazard": "Nog",
+        "movement_patterns": [
+          "straight_slide",
+          "herring_bone"
+        ]
+      },
+      "tags": [
+        "seasonal"
+      ],
+      "id": "mc-129"
+    }
+  ]
+}

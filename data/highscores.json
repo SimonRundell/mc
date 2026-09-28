@@ -1,0 +1,25 @@
+{
+    "scores": [
+        {
+            "name": "Simon",
+            "score": 130,
+            "ruleName": "Parker's 1st Principle",
+            "turns": 15,
+            "achievedAt": "2026-09-28T20:07:06+00:00"
+        },
+        {
+            "name": "Simon",
+            "score": 80,
+            "ruleName": "Zone Diplomacy",
+            "turns": 34,
+            "achievedAt": "2026-09-28T20:12:28+00:00"
+        },
+        {
+            "name": "Simon",
+            "score": 10,
+            "ruleName": "Apologetic Rules",
+            "turns": 6,
+            "achievedAt": "2026-09-28T20:03:10+00:00"
+        }
+    ]
+}
