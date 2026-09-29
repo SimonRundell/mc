@@ -16,6 +16,13 @@
         },
         {
             "name": "Simon",
+            "score": 20,
+            "ruleName": "Military Version",
+            "turns": 8,
+            "achievedAt": "2026-09-29T05:02:35+00:00"
+        },
+        {
+            "name": "Simon",
             "score": 10,
             "ruleName": "Apologetic Rules",
             "turns": 6,

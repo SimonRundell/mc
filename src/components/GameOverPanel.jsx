@@ -16,8 +16,14 @@ export default function GameOverPanel() {
   const winner = engineState.players.find((p) => p.id === engineState.winnerId);
   const human = engineState.players.find((p) => p.isHuman);
   const humanScore = engineState.scores[human.id] || 0;
+  const humanWon = engineState.winnerId === human.id;
 
   useEffect(() => {
+    if (!humanWon) {
+      setChecked(true);
+      return;
+    }
+
     let cancelled = false;
     fetchHighScores(config.apiBaseUrl)
       .then((scores) => {
