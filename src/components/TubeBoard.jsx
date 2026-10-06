@@ -1,7 +1,8 @@
 import { useMemo } from 'react';
 import { useGame } from '../context/GameContext';
+import { useConfig } from '../context/ConfigContext';
 import { stationsData } from '../data';
-import { computeAvailableStations, getCurrentPlayerId } from '../engine/gameEngine';
+import { computeAvailableStations, getCurrentPlayerId, limitChoices } from '../engine/gameEngine';
 import PlayerPanel from './PlayerPanel';
 import RuleCard from './RuleCard';
 import StationSelect from './StationSelect';
@@ -16,7 +17,15 @@ export default function TubeBoard() {
   const currentPlayer = engineState.players.find((p) => p.id === currentPlayerId);
   const human = engineState.players.find((p) => p.isHuman);
 
-  const options = useMemo(() => computeAvailableStations(engineState, stationsData), [engineState]);
+  const config = useConfig();
+  const isHumanTurn = !!currentPlayer?.isHuman;
+
+  // Re-drawn whenever the engine state moves on, so each human turn gets a
+  // fresh random shortlist.
+  const options = useMemo(() => {
+    const all = computeAvailableStations(engineState, stationsData);
+    return isHumanTurn ? limitChoices(all, config.humanMaxChoices, config.humanMcChance) : all;
+  }, [engineState, isHumanTurn, config.humanMaxChoices, config.humanMcChance]);
 
   function lastMoveFor(playerId) {
     return [...engineState.moveHistory].reverse().find((m) => m.playerId === playerId) || null;

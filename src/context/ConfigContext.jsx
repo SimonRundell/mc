@@ -6,11 +6,13 @@ const DEFAULT_CONFIG = {
   aiThinkingDelayMsMax: 3200,
   objectionChance: 0.25,
   objectionUpheldChance: 0.18,
-  mcCallBaseProbability: 0.08,
-  mcCallProbabilityIncrement: 0.04,
   commentaryIntervalMsMin: 4000,
   commentaryIntervalMsMax: 9000,
   showRetiredStationsDefault: false,
+  humanMaxChoices: 25,
+  computerMaxChoices: 25,
+  humanMcChance: 0.05,
+  computerMcChance: 0.15,
 };
 
 const ConfigContext = createContext(DEFAULT_CONFIG);

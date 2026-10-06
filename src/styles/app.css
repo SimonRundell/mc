@@ -387,6 +387,11 @@ button {
   border: 2px solid var(--tfl-black);
   border-radius: var(--radius);
   overflow: hidden;
+  /* Leaflet panes use z-index 200-1000. Isolating the panel keeps them in
+     their own stacking context so they can never sit above the modals. */
+  position: relative;
+  isolation: isolate;
+  z-index: 0;
 }
 
 .map-panel__map {
@@ -487,7 +492,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 50;
+  z-index: 1100;
   padding: 16px;
 }
 
@@ -608,4 +613,110 @@ button {
 .game-over-panel h2 {
   color: var(--tfl-red);
   font-size: 1.8rem;
+}
+
+/* ---------- How to play drawer ---------- */
+
+.how-to-play__button {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 900;
+  box-shadow: 0 4px 0 var(--tfl-black);
+}
+
+.how-to-play__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.how-to-play__backdrop--open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.how-to-play__drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(480px, 100vw);
+  z-index: 1210;
+  background: #fff;
+  border-left: 3px solid var(--tfl-black);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.how-to-play__drawer--open {
+  transform: translateX(0);
+}
+
+/* A plain browser-style address bar so the page looks like it was fetched. */
+.how-to-play__chrome {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #e8eaed;
+  border-bottom: 1px solid #c4c7cc;
+}
+
+.how-to-play__address {
+  flex: 1;
+  background: #fff;
+  border-radius: 14px;
+  padding: 4px 12px;
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+  color: #3c4043;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.how-to-play__close {
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #3c4043;
+  padding: 0 4px;
+}
+
+/* Deliberately unstyled, matching Apache's stock error page. */
+.how-to-play__page {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 16px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  color: #000;
+}
+
+.how-to-play__page h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2em;
+  font-weight: bold;
+  letter-spacing: normal;
+  margin: 0.67em 0;
+}
+
+.how-to-play__page address {
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .how-to-play__drawer,
+  .how-to-play__backdrop {
+    transition: none;
+  }
 }

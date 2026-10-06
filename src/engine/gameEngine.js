@@ -8,7 +8,7 @@
 import { interpretRule } from './ruleEffects';
 import { computeMovePoints, WIN_BONUS } from './scoring';
 
-export const MC_NAME = 'Mornington Crescent Underground Station';
+export const MC_NAME = 'Mornington Crescent';
 
 /**
  * @param {object[]} players - [{id, name, isHuman, position}]
@@ -124,6 +124,42 @@ export function computeAvailableStations(state, stationsData) {
   });
 
   return options.sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/**
+ * Narrows a player's choices for this turn to a random shortlist of at most
+ * `max` currently-legal options. Mornington Crescent is drawn separately:
+ * it makes the shortlist with probability `mcChance`, taking one of the
+ * `max` slots, so how often it appears can be tuned independently of the
+ * size of the station list. Everything left out is disabled rather than
+ * removed. If there are already `max` or fewer legal options, nothing is
+ * narrowed and MC (if legal) stays available.
+ *
+ * @param {object[]} options - output of computeAvailableStations
+ * @param {number} max - the most options that may remain selectable
+ * @param {number} mcChance - probability (0 to 1) that MC makes the shortlist
+ * @returns {object[]} a new array in the same order as `options`
+ */
+export function limitChoices(options, max, mcChance) {
+  const legal = options.filter((o) => !o.disabled);
+  if (legal.length <= max) return options;
+
+  const mc = legal.find((o) => o.isMCOption);
+  const includeMc = !!mc && Math.random() < mcChance;
+
+  const pool = legal.filter((o) => !o.isMCOption);
+  for (let i = pool.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  const kept = new Set(pool.slice(0, includeMc ? max - 1 : max));
+  if (includeMc) kept.add(mc);
+
+  return options.map((o) =>
+    o.disabled || kept.has(o)
+      ? o
+      : { ...o, disabled: true, reason: 'Not available this turn.' }
+  );
 }
 
 function skipPlayerNextTurn(state, playerId) {
@@ -271,22 +307,24 @@ export function applyTimeout(state) {
 }
 
 /**
- * Picks a computer player's move: a rising chance to call MC each round
- * once eligible, otherwise a uniform-random legal station.
+ * Picks a computer player's move: a uniform-random choice from a hidden
+ * shortlist of `config.computerMaxChoices` legal options. MC is treated like
+ * any other entry, so it is only called if it makes the shortlist (with
+ * probability `config.computerMcChance`) and is then picked from it.
+ *
+ * @param {object} state - current engine state (unused, kept for the call signature)
+ * @param {object[]} availableOptions - output of computeAvailableStations
+ * @param {object} config - app config from .config.json
+ * @returns {object} the chosen option
  */
 export function computerDecision(state, availableOptions, config) {
-  const isFirstMoveEver = state.moveHistory.length === 0;
-  const mcOption = availableOptions.find((o) => o.isMCOption);
-  const legalStations = availableOptions.filter((o) => !o.isMCOption && !o.disabled);
+  const shortlist = limitChoices(
+    availableOptions,
+    config.computerMaxChoices,
+    config.computerMcChance
+  );
+  const legal = shortlist.filter((o) => !o.disabled);
 
-  if (mcOption && !mcOption.disabled && !isFirstMoveEver) {
-    const probability = Math.min(
-      0.95,
-      config.mcCallBaseProbability + config.mcCallProbabilityIncrement * (state.round - 1)
-    );
-    if (Math.random() < probability) return mcOption;
-  }
-
-  if (!legalStations.length) return mcOption;
-  return legalStations[Math.floor(Math.random() * legalStations.length)];
+  if (!legal.length) return availableOptions.find((o) => o.isMCOption);
+  return legal[Math.floor(Math.random() * legal.length)];
 }
